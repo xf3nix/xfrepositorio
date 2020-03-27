@@ -23,15 +23,13 @@ print(l)
 ''.join(l)
 print(''.join(l))
 
-print(help(j.find))  # Nota: Los métodos pueden concatenarse 
-
+print(help(j.find))  # Nota: Los métodos pueden concatenarse
                    
 #Reasignacion en listas!
 
 f1 = [0,1,2]
 f2 = f1
 print(f1,f2)
-
 
 # en este caso si cambia el valor de uno el otro tambien lo hara
 f1[0] = 3
@@ -43,8 +41,6 @@ import copy
 f2 = copy.copy(f1)
 f1[0] = 0
 print(f1,f2)
-
-
 
 lista = ['a','b','c',['d','e','f',['g','h','i']]]
 
