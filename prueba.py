@@ -1,3 +1,3 @@
 # xfrepositorio
 variable = "hola Mundo"
-print(var)
+print(variable)
