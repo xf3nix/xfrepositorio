@@ -1,0 +1,111 @@
+<TreeViewLabel>:
+    font_size: 10
+    color_selected: [1, 0, 0, 1]  if self.is_selected else [.1, .1, .1, 1]  # red
+    on_touch_down:
+        app.root.name.text = self.text
+        #app.root.popup.dismiss_callback()
+
+
+<TreeviewGroup>:
+    tree_view: tree_view
+    title: "Seleccion"
+    auto_dismiss: False
+    ti:ti
+
+    BoxLayout
+        orientation: "vertical"
+        size: 800, 800
+
+        CustomLabel:
+            id : ti
+            text: root.filter_text
+            size_hint_y: 0.08
+            multiline: True
+            on_text:
+                #root.filter_text = self.text
+                root.filter(self.text)
+
+        ScrollView:
+            size_hint: 1, .5
+
+            BoxLayout:
+                size_hint_y: 2
+                size:10,100
+                id: tree_view
+
+        GridLayout:
+            cols: 2
+            row_default_height: '20dp'
+            size_hint: .5, 0.1
+            pos_hint: {'x': .25, 'y': 1}
+            Button:
+                text: 'Ok'
+                on_release:
+                    root.dismiss_callback()
+
+            Button:
+                text: 'Cancel'
+                on_release:
+                    root.dismiss_callback()
+
+
+GroupScreen:
+    name: name
+
+
+    BoxLayout:
+        CustomLabel:
+            id: cust
+
+    BoxLayout:
+        cols: 2
+        orientation: "horizontal"
+        padding : 10,10
+        spacing: 10, 10
+        size_hint_y: 0.35
+
+        GreenButton:
+            id: name
+            text: ""
+            on_press: root.display_groups(self)
+
+        GreenButton:
+            text: 'Cargar'
+            on_release: root.cargar()
+
+        GreenButton:
+            text: 'Salir'
+            on_release: root.exit()
+
+        GreenButton:
+            text: 'Borrar'
+            on_release: root.borrar()
+
+        GreenButton:
+            id: pdf
+            text: 'PDF'
+
+
+
+
+
+<CustomLabel@Label>:
+    text_size: self.size
+    valign: "center"
+    font_size: 10
+    padding_x: 5
+
+<SingleLineTextInput@TextInput>:
+    multiline: True
+    size: 1,130
+    font_size: 10
+    valign: 'center'
+    size_hint: 1, None
+
+<GreenButton@Button>:
+    size_hint_y: None
+    font_size: 10
+    valign: 'center'
+    halign: 'center'
+    height: self.parent.height * 0.150
+    text_size: self.size
