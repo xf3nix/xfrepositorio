@@ -1,8 +1,8 @@
 import pymysql.cursors
 
 try:
-    con = pymysql.connect(user="root", password="gr1d0sm4rt.", host="casadeberrini.ddns.net",
-                          database="IMedical", port=3333)
+    con = pymysql.connect(user="test", password="test", host="127.0.0.1",
+                          database="IMedical", port=3306)
 except:
    pass
 
